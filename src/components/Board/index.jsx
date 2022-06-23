@@ -17,45 +17,45 @@ const useStyle = makeStyles((theme) => ({
 
 const Board = () => {
   const classes = useStyle();
+  //State to carry our task lists
+
   const [state, setState] = useState([
     { title: "Open Bounties", type: "grey", data: getItems(5) },
     { title: "ASSIGNED/IN PROGRESS", type: "blue", data: getItems(4, 5) },
     { title: "UNDER REVIEW", type: "purple", data: getItems(6, 9) },
     { title: "CLOSE / REWARDED", type: "green", data: getItems(5, 15) },
   ]);
-  console.log(state);
+  // Main function that dnd untilize to deal with drag events
   function onDragEnd(result) {
     const { source, destination } = result;
-    console.log(result);
 
+    /// check if the task is being moved outside the div
     if (!destination) {
       return;
     }
+    
+    // get source and destination id
     const sInd = +source.droppableId;
     const dInd = +destination.droppableId;
 
+    // if source and destination are same, meaning we are moving the item in the same list
+    // then just reorder it. Else use the move function to switch the tasks from one list to another
     if (sInd === dInd) {
       const items = reorder(state[sInd].data, source.index, destination.index);
       const newState = [...state];
       newState[sInd].data = items;
       setState(newState);
     } else {
-      const result = move(
-        state[sInd].data,
-        state[dInd].data,
-        source,
-        destination
-      );
-      console.log(result);
+      const result = move(state[sInd].data, state[dInd].data, source, destination);
+      console.log(result)
       const newState = [...state];
       newState[sInd].data = result[sInd];
       newState[dInd].data = result[dInd];
-      console.log(newState);
+      console.log(newState)
 
-      setState(newState);
+    setState(newState);
     }
   }
-
   return (
     <>
       <Grid
