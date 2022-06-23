@@ -1,22 +1,12 @@
-import { makeStyles } from "@material-ui/styles";
-import { getItems, reorder, move } from "../../helpers/misc";
+import { Grid } from "@material-ui/core";
 import { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
+import { getItems, move, reorder } from "../../helpers/misc";
 import List from "../List/index";
-import { Grid } from "@material-ui/core";
 
-const useStyle = makeStyles((theme) => ({
-  flex: {
-    display: "flex",
-    justifyContent: "space-evenly",
-    flexBasis: "25%",
-    columnGap: "1rem",
-    flexGrow: 0,
-  },
-}));
+
 
 const Board = () => {
-  const classes = useStyle();
   //State to carry our task lists
 
   const [state, setState] = useState([
