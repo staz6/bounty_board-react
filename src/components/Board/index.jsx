@@ -33,7 +33,7 @@ const Board = () => {
     if (!destination) {
       return;
     }
-    
+
     // get source and destination id
     const sInd = +source.droppableId;
     const dInd = +destination.droppableId;
@@ -46,14 +46,19 @@ const Board = () => {
       newState[sInd].data = items;
       setState(newState);
     } else {
-      const result = move(state[sInd].data, state[dInd].data, source, destination);
-      console.log(result)
+      const result = move(
+        state[sInd].data,
+        state[dInd].data,
+        source,
+        destination
+      );
+      console.log(result);
       const newState = [...state];
       newState[sInd].data = result[sInd];
       newState[dInd].data = result[dInd];
-      console.log(newState)
+      console.log(newState);
 
-    setState(newState);
+      setState(newState);
     }
   }
   return (

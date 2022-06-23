@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
-import Board from '../components/Board'
+import Board from "../components/Board";
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -28,7 +28,7 @@ function Home() {
   return (
     <div className={classes.container}>
       <h1 className={classes.heading}>Bounties</h1>
-      <Board/>
+      <Board />
     </div>
   );
 }

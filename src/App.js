@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { ThemeProvider } from "@material-ui/styles";
 import { createTheme } from "@material-ui/core";
 import MainLayout from "./layout/MainLayout";
