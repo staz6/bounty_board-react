@@ -9,7 +9,7 @@ function getThemeType() {
   return createTheme({
     primary: {
       text: "#fff",
-      bg:"rgb(90 72 96/1)",
+      bg: "rgb(90 72 96/1)",
       grey: "rgb(196, 196, 196)",
       blue: "rgb(95, 113, 212)",
       purple: "rgb(165, 22, 185)",
