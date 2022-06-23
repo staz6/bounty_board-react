@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import logo from "./logo.svg";
+import { ThemeProvider } from "@material-ui/styles";
+import { createTheme } from "@material-ui/core";
+import MainLayout from "./layout/MainLayout";
+import Home from "./pages/Home";
 
+///Theme provider for color codes and border
+function getThemeType() {
+  return createTheme({
+    primary: {
+      text: "#fff",
+      bg:"rgb(90 72 96/1)",
+      grey: "rgb(196, 196, 196)",
+      blue: "rgb(95, 113, 212)",
+      purple: "rgb(165, 22, 185)",
+      green: "rgb(6, 219, 172)",
+    },
+    border: {
+      color: "rgb(74 74 74/1)",
+      main: "1px solid rgb(74 74 74/1)",
+    },
+  });
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={getThemeType()}>
+      <MainLayout>
+        <Home></Home>
+      </MainLayout>
+    </ThemeProvider>
   );
 }
 
